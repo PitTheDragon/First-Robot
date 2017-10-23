@@ -41,6 +41,7 @@ public class ControllerConstants {
 	// Drive
 	public static Joystick joystickdrive;
 
+	
 	public static JoystickButton driveA;
 	public static JoystickButton driveB;
 	public static JoystickButton driveY;
@@ -56,6 +57,12 @@ public class ControllerConstants {
 	
 	public static JoystickButton driveStart;
 	public static JoystickButton driveSelect;
+	
+	public static JoystickButton driveAxisLeftY;
+	public static JoystickButton driveAxisLeftX;
+	public static JoystickButton driveAxisRightY;
+	public static JoystickButton driveAxisRightX;
+	
 	
 	public static JoystickButton drivePovTop;
 	public static JoystickButton drivePovBot;
@@ -106,6 +113,11 @@ public class ControllerConstants {
 		
 		driveStart = new JoystickButton(joystickdrive, BUTTON_START);
 		driveSelect = new JoystickButton(joystickdrive, BUTTON_SELECT);
+		
+		driveAxisLeftY = new JoystickButton(joystickdrive, AXIS_LEFT_Y);
+		driveAxisLeftX = new JoystickButton(joystickdrive, AXIS_LEFT_X);
+		driveAxisRightY = new JoystickButton(joystickdrive, AXIS_RIGHT_Y);
+		driveAxisRightX = new JoystickButton(joystickdrive, AXIS_RIGHT_X);
 		
 		drivePovTop = new JoystickButton(joystickdrive, POV_TOP);
 		drivePovBot = new JoystickButton(joystickdrive, POV_BOT);

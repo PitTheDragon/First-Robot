@@ -14,6 +14,7 @@ public class Chassis extends Subsystem {
 	private VictorSP rightFrontMotor;
 	private VictorSP rightBackMotor;
 	
+	
 	RobotDrive driveController;
   
 	
@@ -29,14 +30,13 @@ public class Chassis extends Subsystem {
 	}
 	public void initDefaultCommand() {
         setDefaultCommand(new Drive());
-    	
-    	
-    }
+        driveController = new RobotDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
+   }
 	public void tankDrive(double left, double right) {
 		driveController.tankDrive(left, right, true);
 	}
 	public void arcadeDrive(double moveValue, double rotateValue) {
-		driveController.arcadeDrive(moveValue, rotateValue, true);
+		driveController.arcadeDrive(moveValue, (-rotateValue * .85), true);
 	}
 }
 

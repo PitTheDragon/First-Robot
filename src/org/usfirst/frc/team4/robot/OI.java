@@ -1,7 +1,5 @@
 package org.usfirst.frc.team4.robot;
 
-import org.usfirst.frc.team4.robot.commands.ToggleDrive;
-
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
@@ -10,7 +8,7 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI {
 	public OI() {
-	ControllerConstants.driveA.toggleWhenPressed(new ToggleDrive());
+		//ControllerConstants.driveA.toggleWhenPressed(new ToggleDrive());
 	}
 	public double driveLeftX(Joystick cont) {
 		return cont.getRawAxis(ControllerConstants.AXIS_LEFT_X);
