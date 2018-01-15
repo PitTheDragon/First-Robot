@@ -13,4 +13,12 @@ public class RobotMap {
 	
 	public static final int CLIMBER_MOTOR_FRONT = 3;
 	public static final int CLIMBER_MOTOR_REAR = 2;
+	
+	public static final int CONVEYOR_MOTOR_UPPER = 6;
+	public static final int CONVEYOR_MOTOR_LOWER = 5;
+	
+	public static final int FUEL_MOTOR_INTAKE = 12;
+	
+	public static final int SHOOTER_MOTOR_LEFT = 0;
+	public static final int SHOOTER_MOTOR_RIGHT = 1;
 }

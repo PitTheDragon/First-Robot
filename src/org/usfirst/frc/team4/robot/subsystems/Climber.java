@@ -20,7 +20,7 @@ public class Climber extends Subsystem {
     }
 
     public void initDefaultCommand() {
-    	//setDefaultCommand(new MySpecialCommand());
+    	
     }
     public void winchForward(){
     	motorFront.set(-0.75);

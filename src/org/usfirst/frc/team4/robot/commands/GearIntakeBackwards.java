@@ -7,29 +7,29 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ToggleDrive extends Command {
+public class GearIntakeBackwards extends Command {
 
-    public ToggleDrive() {
-        requires(Robot.chassis);
+    public GearIntakeBackwards() {
+        requires(Robot.gearintake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.chassis.isArcadeDrive =! Robot.chassis.isArcadeDrive;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	Robot.gearintake.setRollerSpeed(-.75);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.gearintake.setRollerSpeed(0);
     }
 
     // Called when another command which requires one or more of the same

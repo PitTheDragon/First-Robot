@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4.robot.subsystems;
+ package org.usfirst.frc.team4.robot.subsystems;
 
 import org.usfirst.frc.team4.robot.RobotMap;
 import org.usfirst.frc.team4.robot.commands.Drive;
@@ -20,6 +20,7 @@ public class Chassis extends Subsystem {
 	
 	public boolean isArcadeDrive = true;
     
+	@SuppressWarnings("deprecation")
 	public Chassis() {
 		leftFrontMotor = new VictorSP(RobotMap.CHASSIS_MOTOR_LEFT_FRONT);
 		leftBackMotor = new VictorSP(RobotMap.CHASSIS_MOTOR_LEFT_REAR);
@@ -28,10 +29,12 @@ public class Chassis extends Subsystem {
 		
 		driveController = new RobotDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 	}
+	@SuppressWarnings("deprecation")
 	public void initDefaultCommand() {
         setDefaultCommand(new Drive());
         driveController = new RobotDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
-   }
+   
+	}
 	public void tankDrive(double left, double right) {
 		driveController.tankDrive(left, right, true);
 	}

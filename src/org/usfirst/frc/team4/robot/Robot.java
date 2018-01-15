@@ -4,7 +4,11 @@ package org.usfirst.frc.team4.robot;
 import org.usfirst.frc.team4.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4.robot.subsystems.Chassis;
 import org.usfirst.frc.team4.robot.subsystems.Climber;
+import org.usfirst.frc.team4.robot.subsystems.Conveyor;
 import org.usfirst.frc.team4.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4.robot.subsystems.FuelIntake;
+import org.usfirst.frc.team4.robot.subsystems.GearIntake;
+import org.usfirst.frc.team4.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,10 +27,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OI oi;
 	public static Chassis chassis;
+	public static OI oi;
 	public static Climber climber;
-
+	public static GearIntake gearintake;
+	public static Conveyor conveyor;
+	public static FuelIntake fuelintake;
+	public static Shooter shooter;
+	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -37,9 +45,13 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		ControllerConstants.init();
-		oi = new OI();
 		chassis = new Chassis();
+		oi = new OI();
 		climber = new Climber();
+		gearintake = new GearIntake();
+		conveyor = new Conveyor();
+		fuelintake = new FuelIntake();
+		shooter = new Shooter();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
