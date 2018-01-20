@@ -3,9 +3,10 @@
 import org.usfirst.frc.team4.robot.RobotMap;
 import org.usfirst.frc.team4.robot.commands.Drive;
 
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 
 public class Chassis extends Subsystem {
@@ -15,8 +16,10 @@ public class Chassis extends Subsystem {
 	private VictorSP rightBackMotor;
 	
 	
-	RobotDrive driveController;
+	DifferentialDrive driveController;
   
+	SpeedControllerGroup leftMotors;
+	SpeedControllerGroup rightMotors;
 	
 	public boolean isArcadeDrive = true;
     
@@ -26,13 +29,17 @@ public class Chassis extends Subsystem {
 		leftBackMotor = new VictorSP(RobotMap.CHASSIS_MOTOR_LEFT_REAR);
 		rightFrontMotor = new VictorSP(RobotMap.CHASSIS_MOTOR_RIGHT_FRONT);
 		rightBackMotor = new VictorSP(RobotMap.CHASSIS_MOTOR_RIGHT_REAR);
+		leftMotors = new SpeedControllerGroup(leftFrontMotor, leftBackMotor);
+		rightMotors = new SpeedControllerGroup(rightFrontMotor, rightBackMotor);
 		
-		driveController = new RobotDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
+		
+		driveController = new DifferentialDrive(leftMotors, rightMotors);
+	
+		
 	}
-	@SuppressWarnings("deprecation")
 	public void initDefaultCommand() {
         setDefaultCommand(new Drive());
-        driveController = new RobotDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
+        driveController = new DifferentialDrive(leftMotors, rightMotors);
    
 	}
 	public void tankDrive(double left, double right) {

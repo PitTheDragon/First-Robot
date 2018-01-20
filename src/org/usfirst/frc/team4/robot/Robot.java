@@ -8,7 +8,6 @@ import org.usfirst.frc.team4.robot.subsystems.Conveyor;
 import org.usfirst.frc.team4.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4.robot.subsystems.FuelIntake;
 import org.usfirst.frc.team4.robot.subsystems.GearIntake;
-import org.usfirst.frc.team4.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -33,7 +32,6 @@ public class Robot extends IterativeRobot {
 	public static GearIntake gearintake;
 	public static Conveyor conveyor;
 	public static FuelIntake fuelintake;
-	public static Shooter shooter;
 	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -51,7 +49,6 @@ public class Robot extends IterativeRobot {
 		gearintake = new GearIntake();
 		conveyor = new Conveyor();
 		fuelintake = new FuelIntake();
-		shooter = new Shooter();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
